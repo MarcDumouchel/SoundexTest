@@ -8,12 +8,13 @@
 #include <string>
 
 using namespace std;
-
+static const size_t MaxCodeLength{4};
 
 class Soundex {
     string ZeroPad(const string& word)const;
     string head(const string& word) const;
     string encodeDigits(const string& word)const;
+    string encodeDigit(char letter)const;
 public:
     string Encode(const string& word) const;
 };
