@@ -23,3 +23,11 @@ TEST_F(SoundexEncoding, PadsWithZerosToEnsureThreeDigitsFollowingFirstLetter)
     //Assert
     ASSERT_THAT(soundex.Encode("I"), Eq("I000"));
 }
+
+TEST_F(SoundexEncoding, ReplaceConsonantsWithAppropriateDigits)
+{
+    //Arrange
+    //Act
+    //Assert
+    ASSERT_THAT(soundex.Encode("Ab"), Eq("A100"));
+}
