@@ -5,9 +5,13 @@ using namespace std;
 
 class Soundex
 {
+    string ZeroPad(const string& word)const
+    {
+        return word + "000";
+    }
 public:
     string Encode(const string& word) const{
-        return word;
+        return ZeroPad(word);
     }
 };
 
@@ -20,6 +24,15 @@ TEST(SoundexEncoding, RetainsSoleLetterOfOneLetterWord)
    //Act
     auto encode = soundex.Encode("A");
     //Assert
-    ASSERT_THAT(encode, Eq("A"));
+    ASSERT_THAT(encode, Eq("A000"));
 }
 
+TEST(SoundexEncoding, PadsWithZerosToEnsureThreeDigitsFollowingFirstLetter)
+{
+    //Arrange
+    Soundex soundex;
+    //Act
+    auto encode = soundex.Encode("I");
+    //Assert
+    ASSERT_THAT(encode, Eq("I000"));
+}
