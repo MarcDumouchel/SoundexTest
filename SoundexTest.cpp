@@ -44,3 +44,11 @@ TEST_F(SoundexEncoding, IgnoreNonAlphabetics)
     //Assert
     ASSERT_THAT(soundex.Encode("A#"), Eq("A000"));
 }
+
+TEST_F(SoundexEncoding, ReplaceMultipleConsonantsWithDigits)
+{
+    //Arrange
+    //Act
+    //Assert
+    ASSERT_THAT(soundex.Encode("Acdl"), Eq("A234"));
+}
