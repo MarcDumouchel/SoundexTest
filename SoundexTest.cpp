@@ -52,3 +52,11 @@ TEST_F(SoundexEncoding, ReplaceMultipleConsonantsWithDigits)
     //Assert
     ASSERT_THAT(soundex.Encode("Acdl"), Eq("A234"));
 }
+
+TEST_F(SoundexEncoding, LimitLengthToFourCharacters)
+{
+    //Arrange
+    //Act
+    //Assert
+    ASSERT_THAT(soundex.Encode("Dcdlb").length(), Eq(4u));
+}
