@@ -87,3 +87,11 @@ TEST_F(SoundexEncoding, IgnoreVowelsLikeLetters)
     //Assert
     ASSERT_THAT(soundex.Encode("BaAeEiIoOuUhHyYcdl"), Eq("B234"));
 }
+
+TEST_F(SoundexEncoding, IgnoreCaseWhenEncodingConsonants)
+{
+    //Arrange
+    //Act
+    //Assert
+    ASSERT_THAT(soundex.Encode("BCDL"), soundex.Encode("Bcdl"));
+}
