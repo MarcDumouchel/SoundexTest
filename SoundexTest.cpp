@@ -36,3 +36,11 @@ TEST_F(SoundexEncoding, ReplaceConsonantsWithAppropriateDigits)
     EXPECT_THAT(soundex.Encode("Am"), Eq("A500"));
     EXPECT_THAT(soundex.Encode("Ar"), Eq("A600"));
 }
+
+TEST_F(SoundexEncoding, IgnoreNonAlphabetics)
+{
+    //Arrange
+    //Act
+    //Assert
+    ASSERT_THAT(soundex.Encode("A#"), Eq("A000"));
+}
