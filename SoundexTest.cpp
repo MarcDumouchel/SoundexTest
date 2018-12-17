@@ -79,3 +79,11 @@ TEST_F(SoundexEncoding, UpperCaseFirstLetter)
     //Assert
     ASSERT_THAT(soundex.Encode("abcd"), StartsWith("A"));
 }
+
+TEST_F(SoundexEncoding, IgnoreVowelsLikeLetters)
+{
+    //Arrange
+    //Act
+    //Assert
+    ASSERT_THAT(soundex.Encode("BaAeEiIoOuUhHyYcdl"), Eq("B234"));
+}
