@@ -8,8 +8,10 @@
 
 class RetweetCollection {
 private:
-    unsigned int size_ = 0;
+    unsigned int size_;
 public:
+    RetweetCollection();
+
     bool isEmpty() const;
     unsigned int size() const;
     void add(const Tweet& tweet);
