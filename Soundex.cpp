@@ -37,7 +37,10 @@ string Soundex::encodeDigits(const string &word) const
         {
             break;
         }
-        encoding += encodeDigit(letter);
+        if(encodeDigit(letter) != lastDigit(encoding))
+        {
+            encoding += encodeDigit(letter);
+        }
     }
     return encoding;
 
@@ -84,5 +87,18 @@ string Soundex::tail(const string &word) const {
 
 bool Soundex::isComplete(const string &encoding) const {
     return encoding.length() == MaxCodeLength -1;
+}
+
+/**
+ * Keep track of the last digit in the encoding string
+ * @param encoding - input string
+ * @return - last encoding digit
+ */
+string Soundex::lastDigit(const string &encoding) const {
+    if (encoding.empty())
+    {
+        return "";
+    }
+    return std::string(1, encoding.back());
 }
 
